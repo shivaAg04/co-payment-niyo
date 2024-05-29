@@ -4,6 +4,7 @@ import 'screen/activity_screen.dart';
 import 'screen/new_card_screen.dart';
 import 'screen/reason_screen.dart';
 import 'screen/splash_screen.dart';
+import 'screen/transaction_history.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'niyo payment',
-      home: ActivityScreen(),
+      home: TransactionHistoryScreen(),
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:co_payment_niyo/util/my_color.dart';
 import 'package:flutter/material.dart';
 
+import '../util/my_dummy_data.dart';
 import '../widget/slider.dart';
+import '../widget/transaction_listtile.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -131,32 +133,9 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   Expanded(
                     child: ListView.builder(
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          contentPadding: const EdgeInsets.all(0),
-                          leading: Container(
-                            //round corner
-                            decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            height: 50,
-                            width: 50,
-                          ),
-                          title: Text(
-                            'Amazon',
-                            style: TextStyle(
-                                color: MyColor.secondaryColor,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          subtitle: Text('payment to friend'),
-                          trailing: Text(
-                            '-\$100.00',
-                            style: TextStyle(
-                                color: MyColor.secondaryColor,
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500),
-                          ),
+                        return TransactionListTile(
+                          transactionHistoryModel:
+                              MyDummyData.transactionHistory[index],
                         );
                       },
                       itemCount: 10,
