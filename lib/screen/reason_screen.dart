@@ -58,15 +58,16 @@ class ReasonScreen extends StatelessWidget {
             ),
             // button for moving to next screen
             MaterialButton(
-                minWidth: double.infinity,
-                color: MyColor.secondaryColor,
-                textColor: Colors.white,
-                padding: const EdgeInsets.all(15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                onPressed: () {},
-                child: const Text("Continue"))
+              minWidth: double.infinity,
+              color: MyColor.secondaryColor,
+              textColor: Colors.white,
+              padding: const EdgeInsets.all(15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              onPressed: () {},
+              child: const Text("Continue"),
+            ),
           ],
         ),
       ),

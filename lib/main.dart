@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screen/activity_screen.dart';
+import 'screen/new_card_screen.dart';
 import 'screen/reason_screen.dart';
 import 'screen/splash_screen.dart';
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'niyo payment',
-      home: ReasonScreen(),
+      home: ActivityScreen(),
     );
   }
 }
