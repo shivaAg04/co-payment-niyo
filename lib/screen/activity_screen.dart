@@ -2,8 +2,10 @@ import 'package:co_payment_niyo/util/my_color.dart';
 import 'package:flutter/material.dart';
 
 import '../util/my_dummy_data.dart';
+import '../widget/line_chart.dart';
 import '../widget/slider.dart';
 import '../widget/transaction_listtile.dart';
+import '../widget/wise_button.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -13,6 +15,7 @@ class ActivityScreen extends StatefulWidget {
 }
 
 class _ActivityScreenState extends State<ActivityScreen> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,8 +100,97 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 children: [
                   // container for graph
                   Container(
-                    height: 380,
-                    color: Colors.yellow,
+                    //corner radius
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25.0),
+                      border: Border.all(
+                          color: Colors.grey.shade200), // Add border color
+                    ),
+                    height: 450,
+
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 15.0),
+                        Text(
+                          'Total Spending',
+                          style: TextStyle(
+                              color: Colors.grey[500], // MyColor.secondaryColo
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        const SizedBox(height: 10.0),
+                        Text(
+                          '\$5,215.00',
+                          style: TextStyle(
+                              color: MyColor.secondaryColor,
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+
+                        const SizedBox(height: 10.0),
+                        // day week month year
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _currentIndex = 0;
+                                });
+                              },
+                              child: WiseButton(
+                                currentIndex: _currentIndex,
+                                title: 'Day',
+                                selfIndex: 0,
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _currentIndex = 1;
+                                });
+                              },
+                              child: WiseButton(
+                                currentIndex: _currentIndex,
+                                title: 'Week',
+                                selfIndex: 1,
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _currentIndex = 2;
+                                });
+                              },
+                              child: WiseButton(
+                                currentIndex: _currentIndex,
+                                title: 'Month',
+                                selfIndex: 2,
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  _currentIndex = 3;
+                                });
+                              },
+                              child: WiseButton(
+                                currentIndex: _currentIndex,
+                                title: 'Year',
+                                selfIndex: 3,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        // graph
+
+                        const Expanded(child: LineChartSample2()),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 15.0),
                   // past transaction text

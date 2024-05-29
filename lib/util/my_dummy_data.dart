@@ -37,31 +37,31 @@ class MyDummyData {
     TransactionHistoryModel(
       title: 'Amazon',
       subTitle: 'Payment to friends',
-      amount: '-\$ 50.00',
+      amount: '-\$250.00',
       icon: Icon(Icons.people),
     ),
     TransactionHistoryModel(
       title: 'Sports',
       subTitle: 'Payment',
-      amount: '-\$ 50.00',
+      amount: '-\$100.00',
       icon: Icon(Icons.people),
     ),
     TransactionHistoryModel(
       title: 'Bank of America',
       subTitle: 'Payment to friends',
-      amount: '-\$ 50.00',
+      amount: '-\$8650.00',
       icon: Icon(Icons.people),
     ),
     TransactionHistoryModel(
       title: 'Bitcoin',
       subTitle: 'Deposite',
-      amount: '-\$ 50.00',
+      amount: '-\$150.00',
       icon: Icon(Icons.people),
     ),
     TransactionHistoryModel(
       title: 'Paypal',
       subTitle: 'Freelance',
-      amount: '-\$ 50.00',
+      amount: '-\$50.00',
       icon: Icon(Icons.people),
     ),
     TransactionHistoryModel(
