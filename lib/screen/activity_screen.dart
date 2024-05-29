@@ -23,7 +23,6 @@ class _ActivityScreenState extends State<ActivityScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // virtual card
           const SizedBox(height: 50.0),
           // back button and text
           Row(

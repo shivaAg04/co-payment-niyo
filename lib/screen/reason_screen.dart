@@ -17,9 +17,11 @@ class ReasonScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // giving some space
             const SizedBox(
               height: 50,
             ),
+            // back button
             Container(
               height: 35,
               width: 35,
@@ -41,7 +43,7 @@ class ReasonScreen extends StatelessWidget {
                 ),
               ),
             ),
-
+            // main reason for using smartpay
             Text(
               "Main Reason for using \nSmartPay",
               style: TextStyle(
@@ -50,9 +52,11 @@ class ReasonScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            // giving some space
             const SizedBox(
               height: 10,
             ),
+            // subtext
             const Text(
               "We need to know this for regulatory\nreasons.And also we are curious",
               style: TextStyle(
@@ -61,6 +65,7 @@ class ReasonScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            // grid view for reasons
             Expanded(
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
