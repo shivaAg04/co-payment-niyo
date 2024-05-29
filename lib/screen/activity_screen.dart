@@ -1,3 +1,4 @@
+import 'package:co_payment_niyo/screen/transaction_history.dart';
 import 'package:co_payment_niyo/util/my_color.dart';
 import 'package:flutter/material.dart';
 
@@ -204,19 +205,30 @@ class _ActivityScreenState extends State<ActivityScreen> {
                             fontSize: 25.0,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
-                        width: 50,
-                        child: Row(
-                          children: [
-                            Text(
-                              "All",
-                              style: TextStyle(
-                                  color: MyColor.secondaryColor,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w500),
+                      InkWell(
+                        onTap: () {
+                          // Handle search button press
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const TransactionHistoryScreen(),
                             ),
-                            const Icon(Icons.keyboard_arrow_down_sharp)
-                          ],
+                          );
+                        },
+                        child: SizedBox(
+                          width: 50,
+                          child: Row(
+                            children: [
+                              Text(
+                                "All",
+                                style: TextStyle(
+                                    color: MyColor.secondaryColor,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              const Icon(Icons.keyboard_arrow_down_sharp)
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -230,7 +242,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               MyDummyData.transactionHistory[index],
                         );
                       },
-                      itemCount: 10,
+                      itemCount: 5,
                     ),
                   )
                 ],

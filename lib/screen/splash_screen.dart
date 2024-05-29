@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:co_payment_niyo/screen/second_splash_screen.dart';
 import 'package:co_payment_niyo/util/my_color.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +15,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     // TODO: implement initState
+    // want to open another scren
+
     super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => SecondSplashScreen(),
+        ),
+      );
+    });
   }
 
   @override
