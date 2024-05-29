@@ -22,6 +22,7 @@ class TransactionListTile extends StatelessWidget {
         ),
         height: 50,
         width: 50,
+        child: transactionHistoryModel.icon,
       ),
       title: Text(
         transactionHistoryModel.title,
@@ -36,7 +37,7 @@ class TransactionListTile extends StatelessWidget {
         style: TextStyle(
             color: MyColor.secondaryColor,
             fontSize: 15.0,
-            fontWeight: FontWeight.w500),
+            fontWeight: FontWeight.w700),
       ),
     );
   }

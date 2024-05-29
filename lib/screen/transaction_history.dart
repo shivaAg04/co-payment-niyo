@@ -153,7 +153,7 @@ class TransactionHistoryScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return TransactionListTile(
                     transactionHistoryModel:
-                        MyDummyData.transactionHistory[index + 2],
+                        MyDummyData.transactionHistory[index + 3],
                   );
                 },
               ),

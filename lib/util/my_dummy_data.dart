@@ -38,31 +38,40 @@ class MyDummyData {
       title: 'Amazon',
       subTitle: 'Payment to friends',
       amount: '-\$250.00',
-      icon: Icon(Icons.people),
+      icon: Image.asset('assets/images/amazon.png'),
     ),
     TransactionHistoryModel(
       title: 'Sports',
       subTitle: 'Payment',
       amount: '-\$100.00',
-      icon: Icon(Icons.people),
+      icon: const Icon(
+        Icons.sports_basketball,
+        color: Colors.green,
+      ),
     ),
     TransactionHistoryModel(
       title: 'Bank of America',
       subTitle: 'Payment to friends',
       amount: '-\$8650.00',
-      icon: Icon(Icons.people),
+      icon: const Icon(
+        Icons.currency_exchange_sharp,
+        color: Colors.black,
+      ),
     ),
     TransactionHistoryModel(
       title: 'Bitcoin',
       subTitle: 'Deposite',
       amount: '-\$150.00',
-      icon: Icon(Icons.people),
+      icon: Icon(
+        Icons.currency_bitcoin_outlined,
+        color: Colors.yellow,
+      ),
     ),
     TransactionHistoryModel(
       title: 'Paypal',
       subTitle: 'Freelance',
       amount: '-\$50.00',
-      icon: Icon(Icons.people),
+      icon: Icon(Icons.paypal),
     ),
     TransactionHistoryModel(
       title: 'Payment',

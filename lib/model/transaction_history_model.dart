@@ -4,7 +4,7 @@ class TransactionHistoryModel {
   final String title;
   final String subTitle;
   final String amount;
-  final Icon icon;
+  final Widget icon;
 
   TransactionHistoryModel({
     required this.title,
