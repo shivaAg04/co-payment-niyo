@@ -62,7 +62,7 @@ class MyDummyData {
       title: 'Bitcoin',
       subTitle: 'Deposite',
       amount: '-\$150.00',
-      icon: Icon(
+      icon: const Icon(
         Icons.currency_bitcoin_outlined,
         color: Colors.yellow,
       ),

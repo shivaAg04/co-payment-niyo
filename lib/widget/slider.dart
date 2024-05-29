@@ -24,37 +24,9 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
                 });
               },
               children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  decoration: BoxDecoration(
-                    color: MyColor.mainColor,
-                    borderRadius: BorderRadius.circular(20.0),
-                    border: Border.all(
-                        color: Colors.transparent), // Add border color
-                  ),
-                  width: MediaQuery.of(context).size.width * .7,
-                  child: const Row(
-                    children: [
-                      Text(
-                        '  Co.payment Cards',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Spacer(),
-                      Text(
-                        '**** 1121',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(color: Colors.blue),
-                Container(color: Colors.green),
+                PaymentHistoryCard(cardColor: MyColor.mainColor),
+                PaymentHistoryCard(cardColor: MyColor.secondaryColor),
+                PaymentHistoryCard(cardColor: Colors.orange),
               ],
             ),
           ),
@@ -84,5 +56,47 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
       );
     }
     return dots;
+  }
+}
+
+// card for payment history
+
+class PaymentHistoryCard extends StatelessWidget {
+  final Color cardColor;
+  const PaymentHistoryCard({
+    required this.cardColor,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+      decoration: BoxDecoration(
+        color: cardColor,
+        borderRadius: BorderRadius.circular(20.0),
+        border: Border.all(color: Colors.transparent), // Add border color
+      ),
+      width: MediaQuery.of(context).size.width * .7,
+      child: const Row(
+        children: [
+          Text(
+            '  Co.payment Cards',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold),
+          ),
+          Spacer(),
+          Text(
+            '**** 1121',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -15,13 +15,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    // want to open another scren
 
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => SecondSplashScreen(),
+          builder: (context) => const SecondSplashScreen(),
         ),
       );
     });

@@ -1,8 +1,7 @@
-import 'package:co_payment_niyo/screen/activity_screen.dart';
 import 'package:co_payment_niyo/screen/custom_bottom_bar.dart';
 import 'package:co_payment_niyo/widget/half_circle.dart';
 import 'package:country_picker/country_picker.dart';
-import 'package:csc_picker/csc_picker.dart';
+
 import 'package:flutter/material.dart';
 
 import '../util/my_color.dart';
@@ -21,19 +20,24 @@ class NewCardScreen extends StatefulWidget {
 }
 
 class _NewCardScreenState extends State<NewCardScreen> {
+  // for selected card color
   int selectedCard = 0;
+  // for country picker
   String countryValue = 'Select Country';
+  // for country flag
   String countryFlag = '🇺🇸';
   @override
   Widget build(BuildContext context) {
+    // for height of the screen
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // virtual card
+            // Space
             const SizedBox(height: 50.0),
+            // back button and text
             Row(
               children: [
                 Container(
@@ -72,6 +76,7 @@ class _NewCardScreenState extends State<NewCardScreen> {
             // container for card
             Stack(
               children: [
+                // background container for card
                 Container(
                   width: double.infinity,
                   height: height * .38,
@@ -94,8 +99,8 @@ class _NewCardScreenState extends State<NewCardScreen> {
                   alignment: Alignment.topRight,
                   child: Container(
                     margin: const EdgeInsets.only(top: 70.0),
-                    height: 170,
-                    width: 50,
+                    height: height * .17,
+                    width: height * .06,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: Colors.white,
@@ -151,221 +156,195 @@ class _NewCardScreenState extends State<NewCardScreen> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Card Details',
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 15.0),
-                    // card number text field
-                    TextField(
-                      decoration: InputDecoration(
-                        //round corner
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
-                        ),
-                        suffixIcon: const Icon(Icons.credit_card),
-
-                        labelText: 'Card Number',
-                        labelStyle: const TextStyle(color: Colors.grey),
-                        border: InputBorder.none, // No underline
-                        contentPadding: const EdgeInsets.all(10.0),
-                        filled: true, // Optional: adds background color
-                        fillColor:
-                            Colors.grey[200], // Optional: background color
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Card Details',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 15.0),
+                  // card number text field
+                  TextField(
+                    decoration: InputDecoration(
+                      //round corner
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(color: Colors.transparent),
                       ),
-                    ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(color: Colors.transparent),
+                      ),
+                      suffixIcon: const Icon(Icons.credit_card),
 
-                    const SizedBox(
-                        height: 15.0), // Add some space between the text fields
-                    // expiry date and cvv text field
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
-                              ),
-                              labelText: 'Expire Date',
-                              labelStyle: TextStyle(color: Colors.grey),
-                              border: InputBorder.none, // No underline
-                              contentPadding: EdgeInsets.all(10.0),
-                              filled: true, // Adds background color
-                              fillColor: Colors.grey[200], // Background color
+                      labelText: 'Card Number',
+                      labelStyle: const TextStyle(color: Colors.grey),
+                      border: InputBorder.none, // No underline
+                      contentPadding: const EdgeInsets.all(10.0),
+                      filled: true, // Optional: adds background color
+                      fillColor: Colors.grey[200], // Optional: background color
+                    ),
+                  ),
+
+                  const SizedBox(
+                      height: 15.0), // Add some space between the text fields
+                  // expiry date and cvv text field
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(color: Colors.transparent),
                             ),
-                          ),
-                        ),
-                        const SizedBox(
-                            width:
-                                10.0), // Add some space between the text fields
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide:
-                                    const BorderSide(color: Colors.transparent),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
-                              ),
-                              labelText: 'CVV',
-                              labelStyle: TextStyle(color: Colors.grey),
-                              border: InputBorder.none, // No underline
-                              contentPadding: EdgeInsets.all(10.0),
-                              filled: true, // Adds background color
-                              fillColor: Colors.grey[200], // Background color
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(color: Colors.transparent),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 15.0),
-                    // card holder text field
-                    TextField(
-                      decoration: InputDecoration(
-                        //round corner
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide:
-                              const BorderSide(color: Colors.transparent),
-                        ),
-
-                        labelText: 'Card Holder',
-                        labelStyle: const TextStyle(color: Colors.grey),
-                        border: InputBorder.none, // No underline
-                        contentPadding: const EdgeInsets.all(10.0),
-                        filled: true, // Optional: adds background color
-                        fillColor:
-                            Colors.grey[200], // Optional: background color
-                      ),
-                    ),
-                    const SizedBox(height: 15.0),
-                    // for  showing the country
-                    InkWell(
-                      onTap: () {
-                        showCountryPicker(
-                          context: context,
-                          showPhoneCode:
-                              false, // optional. Shows phone code before the country name.
-                          onSelect: (Country country) {
-                            setState(() {
-                              countryValue = country.name;
-                              countryFlag = country.flagEmoji;
-                            });
-                            print('Select country: ${country.flagEmoji}');
-                          },
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.grey[200],
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.location_on_outlined),
-                              const SizedBox(width: 10.0),
-                              Text(countryValue),
-                              const Spacer(),
-                              const Icon(Icons.keyboard_arrow_down_outlined),
-                            ],
+                            labelText: 'Expire Date',
+                            labelStyle: TextStyle(color: Colors.grey),
+                            border: InputBorder.none, // No underline
+                            contentPadding: EdgeInsets.all(10.0),
+                            filled: true, // Adds background color
+                            fillColor: Colors.grey[200], // Background color
                           ),
                         ),
                       ),
-                      // child: TextField(
-                      //   readOnly: true,
-                      //   decoration: InputDecoration(
-                      //     //round corner
-                      //     enabledBorder: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(10.0),
-                      //       borderSide: const BorderSide(color: Colors.transparent),
-                      //     ),
-                      //     focusedBorder: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(10.0),
-                      //       borderSide: const BorderSide(color: Colors.transparent),
-                      //     ),
-                      //     suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined),
+                      const SizedBox(
+                          width:
+                              10.0), // Add some space between the text fields
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide:
+                                  const BorderSide(color: Colors.transparent),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(color: Colors.transparent),
+                            ),
+                            labelText: 'CVV',
+                            labelStyle: TextStyle(color: Colors.grey),
+                            border: InputBorder.none, // No underline
+                            contentPadding: EdgeInsets.all(10.0),
+                            filled: true, // Adds background color
+                            fillColor: Colors.grey[200], // Background color
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15.0),
+                  // card holder text field
+                  TextField(
+                    decoration: InputDecoration(
+                      //round corner
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(color: Colors.transparent),
+                      ),
 
-                      //     labelText: 'Card Number',
-                      //     labelStyle: const TextStyle(color: Colors.grey),
-                      //     border: InputBorder.none, // No underline
-                      //     contentPadding: const EdgeInsets.all(10.0),
-                      //     filled: true, // Optional: adds background color
-                      //     fillColor: Colors.grey[200], // Optional: background color
-                      //   ),
-                      // ),
+                      labelText: 'Card Holder',
+                      labelStyle: const TextStyle(color: Colors.grey),
+                      border: InputBorder.none, // No underline
+                      contentPadding: const EdgeInsets.all(10.0),
+                      filled: true, // Optional: adds background color
+                      fillColor: Colors.grey[200], // Optional: background color
                     ),
+                  ),
+                  const SizedBox(height: 15.0),
+                  // for  showing the country
+                  InkWell(
+                    onTap: () {
+                      showCountryPicker(
+                        context: context,
+                        showPhoneCode:
+                            false, // optional. Shows phone code before the country name.
+                        onSelect: (Country country) {
+                          setState(() {
+                            countryValue = country.name;
+                            countryFlag = country.flagEmoji;
+                          });
+                          print('Select country: ${country.flagEmoji}');
+                        },
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey[200],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.location_on_outlined),
+                            const SizedBox(width: 10.0),
+                            Text(countryValue),
+                            const Spacer(),
+                            const Icon(Icons.keyboard_arrow_down_outlined),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // child: TextField(
+                    //   readOnly: true,
+                    //   decoration: InputDecoration(
+                    //     //round corner
+                    //     enabledBorder: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //       borderSide: const BorderSide(color: Colors.transparent),
+                    //     ),
+                    //     focusedBorder: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(10.0),
+                    //       borderSide: const BorderSide(color: Colors.transparent),
+                    //     ),
+                    //     suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined),
 
-                    // CSCPicker(
-                    //   // initial country selection
-
-                    //   defaultCountry: CscCountry.Afghanistan,
-                    //   dropdownDecoration: BoxDecoration(
-                    //     borderRadius:
-                    //         const BorderRadius.all(Radius.circular(10)),
-                    //     color: Colors.grey[200],
+                    //     labelText: 'Card Number',
+                    //     labelStyle: const TextStyle(color: Colors.grey),
+                    //     border: InputBorder.none, // No underline
+                    //     contentPadding: const EdgeInsets.all(10.0),
+                    //     filled: true, // Optional: adds background color
+                    //     fillColor: Colors.grey[200], // Optional: background color
                     //   ),
-                    //   onCountryChanged: (value) async {
-                    //     setState(() {
-                    //       print(value);
-
-                    //     });
-                    //   },
-                    //   showCities: false,
-                    //   showStates: false,
                     // ),
-                    const SizedBox(
-                      height: 15.0,
-                    ),
-                    // button for moving to next screen
+                  ),
 
-                    MaterialButton(
-                      height: 50,
-                      minWidth: double.infinity,
-                      color: MyColor.secondaryColor,
-                      textColor: Colors.white,
-                      padding: const EdgeInsets.all(15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const CustomBottomNavigationBar(),
-                          ),
-                        );
-                      },
-                      child: const Text("Save"),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  // button for moving to next screen
+
+                  MaterialButton(
+                    height: 50,
+                    minWidth: double.infinity,
+                    color: MyColor.secondaryColor,
+                    textColor: Colors.white,
+                    padding: const EdgeInsets.all(15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  ]),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const CustomBottomNavigationBar(),
+                        ),
+                      );
+                    },
+                    child: const Text("Save"),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -374,6 +353,7 @@ class _NewCardScreenState extends State<NewCardScreen> {
   }
 }
 
+// new class for custom credit card
 class CreditCard extends StatelessWidget {
   final int selectedCard;
   const CreditCard({

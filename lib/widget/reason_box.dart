@@ -44,7 +44,8 @@ class ReasonBox extends StatelessWidget {
             reason,
             style: TextStyle(
               fontSize: 16,
-              color: isColor ? Colors.white : Colors.black,
+              fontWeight: FontWeight.w600,
+              color: isColor ? Colors.white : MyColor.secondaryColor,
             ),
           ),
         ],
