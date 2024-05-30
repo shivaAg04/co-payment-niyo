@@ -19,6 +19,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,7 +107,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                       border: Border.all(
                           color: Colors.grey.shade200), // Add border color
                     ),
-                    height: 450,
+                    height: height * .45,
 
                     child: Column(
                       children: [
@@ -247,7 +248,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
