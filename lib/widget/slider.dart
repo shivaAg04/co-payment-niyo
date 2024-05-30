@@ -89,11 +89,19 @@ class PaymentHistoryCard extends StatelessWidget {
           ),
           Spacer(),
           Text(
-            '**** 1121',
+            '**** 1121 ',
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold),
+          ),
+          // icon
+          Icon(
+            Icons.credit_card,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 10,
           ),
         ],
       ),

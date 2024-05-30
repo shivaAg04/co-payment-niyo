@@ -1,5 +1,4 @@
 // Fake data for the app
-// Create a new file named my_dummy_data.dart inside the util folder and add the following code:
 import 'package:co_payment_niyo/model/transaction_history_model.dart';
 import 'package:flutter/material.dart';
 

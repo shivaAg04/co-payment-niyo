@@ -23,7 +23,7 @@ class _NewCardScreenState extends State<NewCardScreen> {
   // for selected card color
   int selectedCard = 0;
   // for country picker
-  String countryValue = 'Select Country';
+  String countryValue = 'Canada';
   // for country flag
   String countryFlag = '🇺🇸';
   @override
@@ -265,6 +265,7 @@ class _NewCardScreenState extends State<NewCardScreen> {
                   InkWell(
                     onTap: () {
                       showCountryPicker(
+                        countryFilter: ['CA', 'US', 'IN'],
                         context: context,
                         showPhoneCode:
                             false, // optional. Shows phone code before the country name.
@@ -286,7 +287,11 @@ class _NewCardScreenState extends State<NewCardScreen> {
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
                           children: [
-                            const Icon(Icons.location_on_outlined),
+                            Image.asset(
+                              'assets/images/${countryValue.toLowerCase()}.png',
+                              height: 20.0,
+                              width: 20.0,
+                            ),
                             const SizedBox(width: 10.0),
                             Text(countryValue),
                             const Spacer(),
@@ -295,28 +300,6 @@ class _NewCardScreenState extends State<NewCardScreen> {
                         ),
                       ),
                     ),
-                    // child: TextField(
-                    //   readOnly: true,
-                    //   decoration: InputDecoration(
-                    //     //round corner
-                    //     enabledBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(10.0),
-                    //       borderSide: const BorderSide(color: Colors.transparent),
-                    //     ),
-                    //     focusedBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(10.0),
-                    //       borderSide: const BorderSide(color: Colors.transparent),
-                    //     ),
-                    //     suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined),
-
-                    //     labelText: 'Card Number',
-                    //     labelStyle: const TextStyle(color: Colors.grey),
-                    //     border: InputBorder.none, // No underline
-                    //     contentPadding: const EdgeInsets.all(10.0),
-                    //     filled: true, // Optional: adds background color
-                    //     fillColor: Colors.grey[200], // Optional: background color
-                    //   ),
-                    // ),
                   ),
 
                   const SizedBox(
